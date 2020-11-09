@@ -1,0 +1,220 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.gameTypeSelect
+	padding: 0 30px 30px
+	margin-bottom: 15px
+	border-bottom: thin solid $gray-8
+
+	& > span
+		display: inline-block
+		color: transparentize($gray-1, .05)
+		font-size: $small-text
+		font-weight: 600
+		margin: 0 0 15px 30px
+
+.gameTypeOption
+	display: inline-block
+	padding: 10px 25px
+	margin-right: 5px
+	color: $brown-1
+	font-size: $regular-text + 1
+	line-height: 1.24
+	font-weight: 600
+	text-transform: capitalize
+	border-radius: $xl-border-radius
+	cursor: pointer
+	transition: .2s $primary-ease
+
+.gameTypeSelected
+	color: $white
+	background: $red
+
+.createGameForm
+	padding: 25px 35px 40px
+
+	& > div
+		width: 330px
+
+	& > label
+		margin-top: 45px
+		width: 150px
+
+	.gameDateTime
+		display: flex
+		justify-content: space-between
+
+		& > div
+			margin-bottom: 0
+			width: calc(50% - 8px)
+
+	.platformFee
+		display: inline-block
+		color: $gray-5
+		font-size: $medium-text
+		transform: translate(25px, -25px)
+		animation: platform-fee-in .2s ease-in
+
+	.formActions
+		margin-top: 30px
+		
+	.confirmButton
+		width: 230px
+
+.listFilters
+	display: flex
+	padding: 5px 30px
+
+	& > div
+		min-width: 230px
+
+		&:not(:last-child)
+			margin-right: 25px
+
+.dateFilter
+	position: relative
+	width: 280px
+
+	& > div
+		&:nth-child(1)
+			width: 280px
+
+		&:nth-child(3)
+			position: absolute
+			top: 0
+			right: 0
+
+			& > div:first-child > div:first-child > div:first-child
+				background: transparent
+				padding: 15px 30px 15px 15px
+				border: none
+
+	& > span
+		position: absolute
+		top: 20px
+		left: 148px
+
+.gamesTable
+	.tableGameType
+		width: 115px
+		font-size: $medium-text
+		line-height: 1.2
+		text-transform: capitalize
+
+	.ended
+		color: $white
+		background: $gray-5
+		width: 115px
+
+	.notStarted
+		color: $white
+		background: $yellow-2
+		width: 115px
+
+	.live
+		color: $white
+		background: $green-2
+		width: 115px
+
+	.cancelled
+		color: $white
+		background: $red
+		width: 115px
+
+.gamesSideModal
+	& > div:last-child
+		width: 820px
+
+.gameCard
+	margin-top: 30px
+	padding: 25px 0
+	background: linear-gradient(152.37deg, #BE4C57 0%, #E9B783 100%)
+	border-radius: $lg-border-radius
+	color: $white
+
+	& > div
+		margin-top: 5px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding-left: 35px
+		padding-right: 35px
+
+		&:first-of-type
+			margin-bottom: 15px
+
+		&:last-child
+			margin-top: 15px
+			padding-top: 15px
+			padding-left: 40px
+			border-top: thin solid $gray-2
+
+			& > div
+				width: 40%
+				flex-basis: 40%
+
+				&:last-child
+					width: 180px
+					flex-basis: 180px
+
+			span
+				font-size: $small-text
+				letter-spacing: 0.6px
+
+	h3
+		margin: 0
+		padding: 0 35px
+		font-size: $large-text
+		line-height: 1.2
+
+	h4
+		font-size: $lg-regular-text + 2
+		font-weight: 600
+		text-transform: capitalize
+
+	span
+		margin-right: 35px
+		opacity: 0.67
+		font-size: $lg-regular-text + 2
+
+.gameCardSummary
+	width: calc(100% - 140)
+	flex-basis: calc(100% - 140)
+	display: flex
+	
+	& > span:first-child
+		flex-shrink: 0
+
+.gameDetails
+	margin: 30px 0
+
+	h3
+		text-align: center
+		color: $gray-1
+		font-size: $regular-text
+		line-height: 1.25
+		letter-spacing: 1.12px
+
+	.gameDetailsTable
+		tr
+			border-radius: $md-border-radius
+			border-bottom: none
+
+.modalActions
+	position: absolute
+	right: 0
+	bottom: 25px
+	left: 0
+	padding: 0 40px
+	display: flex
+	justify-content: space-between
+
+.loadingMask
+	@include fullAbsolute
+	background: transparentize($white, .4)
+	z-index: 20
+
+@keyframes platform-fee-in
+	from
+		opacity: 0
+		transform: translate(25px, -18px)

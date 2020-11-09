@@ -1,0 +1,216 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.formGroup
+    position: relative
+    margin-bottom: 30px
+
+    .formControl
+        width: 100%
+        height: $form-input-height
+        background: $white
+        padding: 15px 25px
+        font-size: $regular-text
+        color: $black
+        border-radius: $md-border-radius
+        border: $regular-border solid $brown-1
+        transition: .3s
+
+        &[type="text"]
+            -webkit-appearance: none
+
+        &:placeholder
+            color: $gray-3
+
+        &:focus
+            outline: 0
+            border-color: $black
+
+        &:disabled
+            background: $gray-4
+            color: transparentize($black, .6)
+            cursor: not-allowed
+
+        &.inputError
+            border-color: $red
+
+        &:required
+            box-shadow: none
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+            appearance: none
+            margin: 0
+
+        &[type=number]
+            -moz-appearance: textfield
+
+    .label
+        display: block
+        color: $gray-1
+        font-size: $small-text
+        letter-spacing: 0.7px
+        line-height: 1.2
+        font-weight: 600
+        padding-left: 25px
+        margin-bottom: 5px
+        transition: .3s
+
+        &.focusedLabel
+            color: $black
+
+        &.errorLabel
+            color: $red
+
+.select.formControl
+    appearance: none
+    padding: 10px 35px 10px 25px
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDEwIDUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+742fPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxnIGlkPSIwNS1BY2Nlc3MtQ29udHJvbCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iNS4xLUFjY2Vzcy1Db250cm9sLS0tLUFkbWluLS0tQ3JlYXRpb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NDUuMDAwMDAwLCAtMzU1LjAwMDAwMCkiIGZpbGw9IiM0MDM2NDUiIGZpbGwtcnVsZT0ibm9uemVybyI+ICAgICAgICAgICAgPHBvbHlnb24gaWQ9Iu+NnyIgcG9pbnRzPSI0NDUgMzU1IDQ1NSAzNTUgNDUwIDM2MCI+PC9wb2x5Z29uPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+)
+    background-position: calc(100% - 20px) center
+    background-repeat: no-repeat
+    cursor: pointer
+
+    &.placeholderSelect
+        color: $gray-3
+
+.checkboxInput, .radioInput
+    display: flex
+    position: relative
+    cursor: pointer
+
+    .checkbox, .radio
+        &Indicator
+            position: relative
+            display: inline-block
+            width: $checkbox-dim
+            height: $checkbox-dim
+            flex-basis: $checkbox-dim
+            border: $regular-border solid $brown-1
+            border-radius: $regular-border-radius + 1
+            background: $white
+            transition: .2s
+
+            @include after
+                position: absolute
+                top: 1px
+                right: 1px
+                bottom: 1px
+                left: 1px
+                background: $black
+                opacity: 0
+                transition: .2s
+
+        &Content
+            width: calc(100% - #{ $checkbox-dim + 15 })
+            flex-basis: calc(100% - #{ $checkbox-dim + 15 })
+            margin-left: 12px
+            color: transparentize($gray-1, .05)
+            font-size: $small-text
+            line-height: 1.25
+            font-weight: 600
+            letter-spacing: 0.84px
+
+    input
+        position: absolute
+        z-index: -1
+        opacity: 0
+
+        &:checked
+            & + .checkboxIndicator
+                border-color: $black
+
+                &:after
+                    opacity: 1
+                    
+            & + .radioIndicator
+                border-color: $black
+
+                &:after
+                    opacity: 1
+
+        &:disabled
+            & ~ *
+                opacity: .6
+
+.radio-input
+    margin-bottom: 10px
+
+.searchInput
+    position: relative
+    width: $search-input-width
+
+    & > svg
+        position: absolute
+        top: 20px
+        left: 20px
+        z-index: 20
+
+    .formControl
+        padding: 15px 25px 15px 50px
+
+.datePicker
+    & > div
+        width: 100%
+        
+    .formControl
+        display: flex
+        align-items: center
+        cursor: pointer
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDEwIDUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+742fPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxnIGlkPSIwNS1BY2Nlc3MtQ29udHJvbCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8ZyBpZD0iNS4xLUFjY2Vzcy1Db250cm9sLS0tLUFkbWluLS0tQ3JlYXRpb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NDUuMDAwMDAwLCAtMzU1LjAwMDAwMCkiIGZpbGw9IiM0MDM2NDUiIGZpbGwtcnVsZT0ibm9uemVybyI+ICAgICAgICAgICAgPHBvbHlnb24gaWQ9Iu+NnyIgcG9pbnRzPSI0NDUgMzU1IDQ1NSAzNTUgNDUwIDM2MCI+PC9wb2x5Z29uPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+)
+        background-position: calc(100% - 20px) center
+        background-repeat: no-repeat
+
+        &.dateWithIcon
+            padding: 15px 25px 15px 50px
+            background: none
+
+            & > svg
+                position: absolute
+                top: 20px
+                left: 20px
+                z-index: 20
+                pointer-events: none
+
+.dateError
+    .formControl
+        border-color: $red
+
+.datePlaceholder
+    color: $gray-3
+
+.inputTip, .errorTip
+	font-size: $medium-text
+	line-height: 1.21
+	margin-left: 25px
+	transform: translateY(-15px)
+
+.inputTip
+	color: $brown-1
+
+.errorTip
+	color: $red
+    
+\:global
+    .react-datepicker
+        .react-datepicker__day--keyboard-selected, .react-datepicker__day--selected, .react-datepicker__time-list-item--selected, .react-datepicker__day--in-range
+            color: $white !important
+            background-color: $red !important
+            
+            &:hover
+                color: $white !important
+                background-color: $red !important
+
+        .react-datepicker__day--in-selecting-range
+            background: transparentize($red, .3)
+
+            &:hover
+                background: $red
+
+    .react-datepicker-wrapper
+        .react-datepicker__close-icon
+            padding: 0px 8px 0px 0px
+
+            &:after
+                background-color: $red
+                width: 14px
+                height: 14px
+                font-size: $small-text - 2

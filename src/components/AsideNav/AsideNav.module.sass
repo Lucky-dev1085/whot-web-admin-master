@@ -1,0 +1,76 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.aside
+	position: fixed
+	width: $aside-nav-width
+	height: 100vh
+	background: $white
+	box-shadow: 0 12px 24px 0 rgba(53,59,63,0.1)
+	overflow: auto
+	z-index: 10
+
+.appLogo
+	margin: 35px 30px
+	text-align: center
+
+	svg
+		transform: translateX(-5px)
+
+.sideMenu
+	min-height: calc(100vh - 110px)
+	position: relative
+	padding-bottom: 100px
+
+	& > li
+		border-top: thin solid $gray-2
+		color: $gray-5
+		font-size: $medium-text
+		line-height: 1.21
+		font-weight: 600
+
+		&:nth-last-child(2)
+			border-bottom: thin solid $gray-2
+
+.menuItem
+	position: relative
+	display: flex
+	align-items: center
+	padding: 20px 40px
+	opacity: 0.62
+	transition: .3s $primary-ease
+
+	> svg
+		margin-right: 15px
+	
+	@include after
+		position: absolute
+		top: 10px
+		right: 0
+		bottom: 10px
+		width: 6px
+		border-radius: $md-border-radius 0 0 $md-border-radius 
+		background: $red
+		opacity: 0
+		transition: .1s $primary-ease
+	
+.activeMenuItem
+	opacity: 1
+	
+	&:after
+		opacity: 1
+
+.logoutMenu
+	position: absolute
+	right: 0
+	bottom: 0
+	left: 0
+
+	svg
+		margin-right: 12px
+
+	span
+		display: flex
+		padding: 20px 40px
+		opacity: 0.62
+		cursor: pointer

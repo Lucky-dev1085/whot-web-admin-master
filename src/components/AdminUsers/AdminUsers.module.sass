@@ -1,0 +1,163 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.createUserCard
+	width: 495px
+
+.createUserForm
+	padding: 15px 35px 40px
+
+	.emailInput
+		margin-right: 45px
+
+	.roleInput
+		max-width: 185px
+
+		select
+			background-color: transparentize($brown-1, .58)
+			border-color: transparent
+			font-weight: 600
+
+			&:focus
+				border-color: transparent
+
+	.formActions
+		margin-top: 130px
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+
+		a
+			color: $gray-3
+			font-size: $medium-text - 1
+			line-height: 1.3
+			font-weight: 600
+			margin-bottom: 5px
+
+	.confirmButton
+		width: 215px
+
+.listFilters
+	display: flex
+	padding: 5px 30px
+
+	& > div
+		min-width: 230px
+
+		&:not(:last-child)
+			margin-right: 25px
+
+.superadmin
+	color: $white
+	background: $gray-5
+	width: 130px
+
+.usersadmin
+	color: $white
+	background: $yellow-2
+	width: 130px
+
+.gamesadmin
+	color: $white
+	background: $green-2
+	width: 130px
+
+.active
+	color: $white
+	background: $green-2
+	width: 90px
+
+.inactive
+	color: $white
+	background: $gray-8
+	width: 90px
+
+.userCard
+	margin-top: 65px
+	padding: 25px 0
+	background: linear-gradient(152.37deg, #BE4C57 0%, #E9B783 100%)
+	border-radius: $lg-border-radius
+	color: $white
+
+	& > div
+		display: flex
+		align-items: center
+		padding-left: 20px
+		padding-right: 20px
+
+		& > svg
+			margin-right: 20px
+
+		&:first-child
+			margin-bottom: 20px
+
+		&:last-child
+			margin-top: 15px
+			padding-top: 15px
+			padding-left: 40px
+			border-top: thin solid $gray-2
+
+			& > div:first-child
+				margin-right: 70px 
+
+			span
+				font-size: $small-text
+				letter-spacing: 0.6px
+
+			time
+				display: block
+				font-size: $lg-regular-text
+				line-height: 1.22
+				font-weight: 600
+
+	h3
+		margin: 0
+		font-size: $large-text
+		line-height: 1.2
+
+	span
+		opacity: 0.67
+
+	.userCardRole
+		margin-bottom: 0
+
+		select
+			height: auto
+			background: transparent
+			border: none
+			padding: 0 22px 0 0
+			color: $white
+			font-size: $large-text
+			line-height: 1.2
+			font-weight: 600
+
+			&:disabled
+				background: transparent
+				color: $white
+				cursor: default
+
+		&:after
+			display: inline-block
+			position: absolute
+			content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDEwIDUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+MzQ0ODc5MDMtNzY2Ni00RkQwLTlEN0UtQkNDMUYyMjNCMzcyPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIHNrZXRjaHRvb2wuPC9kZXNjPiAgICA8ZyBpZD0iMDUtQWNjZXNzLUNvbnRyb2wiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9IjUuMC4xLUFjY2Vzcy1Db250cm9sLS0tLUFkbWluLUxpc3QtLS1BY3Rpb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDE4LjAwMDAwMCwgLTI1My4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iPiAgICAgICAgICAgIDxnIGlkPSJ2aWV3L2xhcmdlL3VzZXIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3Mi4wMDAwMDAsIDExNS4wMDAwMDApIj4gICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTMiPiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTciPiAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSLvjZ8iIHBvaW50cz0iMjQ2IDEzOCAyNTYgMTM4IDI1MSAxNDMiPjwvcG9seWdvbj4gICAgICAgICAgICAgICAgICAgIDwvZz4gICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==)
+			transform: translate(-15px, 2px)
+			pointer-events: none
+
+	.disabledRoleSelect
+		& > div:after
+			content: none
+
+.userCarduserName
+	text-transform: uppercase
+
+.userCardEmail
+	font-size: $lg-regular-text + 2
+	line-height: 1.2
+
+.userCardRoleLabel
+	font-size: $small-text - 2
+
+.removeButton
+	position: absolute
+	right: 40px
+	bottom: 25px

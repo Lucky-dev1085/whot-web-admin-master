@@ -1,0 +1,36 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.header
+	position: sticky
+	top: 0
+	height: $header-height
+	background: $white
+	padding: 10px 50px
+	display: flex
+	justify-content: flex-end
+	box-shadow: 0 12px 24px 0 rgba(53,59,63,0.1)
+	z-index: 30
+
+	& > div
+		display: flex
+		align-items: center
+
+.headerBtn
+	padding: 5px 25px
+	margin-right: 40px
+
+.userName
+	color: $gray-5
+	font-size: $lg-regular-text
+	font-weight: 600
+
+.dropDownIndicator
+	margin-left: 15px
+	display: inline-block
+	border-color: $gray-5 transparent
+	border-style: solid
+	border-width: 5px 5px 0px 5px
+	height: 0px
+	width: 0px
+	cursor: pointer

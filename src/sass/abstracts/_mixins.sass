@@ -1,0 +1,120 @@
+// Font face
+@mixin fontFace($family, $weight, $fileName, $style: normal)
+    @font-face
+        font-family: $family
+        font-style: $style
+        font-weight: $weight
+        font-display: block
+        src: url('../../shared/fonts/#{$fileName}.eot?#iefix') format('embedded-opentype'), url('../../shared/fonts/#{$fileName}.woff') format('woff'), url('../../shared/fonts/#{$fileName}.ttf') format('truetype')
+
+// Center immediate child both vertically and horizontally
+@mixin fullCenter
+    display: flex
+    justify-content: center
+    align-items: center
+
+// Center container relative to parent
+@mixin centerContainer($position: relative)
+    position: $position
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+@mixin fullAbsolute
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+
+// Apply media query for specied breakpoint
+@mixin respondTo($breakpoint)
+  @if $breakpoint == "size-xs"
+    @media (max-width: #{$size-sm})
+      @content
+
+  @if $breakpoint == "size-sm"
+    @media (min-width: #{$size-sm})
+      @content
+
+  @else if $breakpoint == "size-md"
+    @media (min-width: #{$size-md})
+      @content
+
+  @else if $breakpoint == "size-lg"
+    @media (min-width: #{$size-lg})
+      @content
+
+  @else if $breakpoint == "size-xl"
+    @media (min-width: #{$size-xl})
+      @content
+
+  @else if $breakpoint == "size-retina"
+    @media (min-width: #{$size-retina})
+      @content
+
+// Create grid column classes
+@mixin gridColumn($modifier: '')
+    @for $i from 1 through $grid-columns
+        .column-#{$modifier}#{$i}
+            flex-basis: $i / 12 * 100%
+            max-width: $i / 12 * 100%
+            padding: 15px
+
+// Create display classes
+@mixin displayProps($modifier: '')
+    .#{$modifier}hidden
+        display: none
+
+    .#{$modifier}block
+        display: block
+
+    .#{$modifier}flex
+        display: flex
+
+// Add before pseudo element with content and other properties
+@mixin before($content: '')
+    &:before
+        content: $content
+        @content
+
+// Add before pseudo element with content and other properties
+@mixin after($content: '')
+    &:after
+        content: $content
+        @content
+
+// Create button class
+@mixin button($textColor, $passiveColor, $hoverColor)
+    color: $textColor
+    background: $passiveColor
+
+    &:hover
+        background: $hoverColor
+
+    &:focus
+        background: $hoverColor
+
+// Apply styles that are the same for hover|focus|active state for buttons
+@mixin hoverFocusActiveState
+    &:hover
+        @content
+    &:focus
+        @content
+    &:active
+        @content
+
+@mixin placeHolderStyle
+    &::-webkit-input-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-moz-placeholder
+        @content
+
+@mixin ellipsis
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis

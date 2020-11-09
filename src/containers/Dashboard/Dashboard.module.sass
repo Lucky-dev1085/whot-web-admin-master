@@ -1,0 +1,13 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+.dashboard
+	min-height: 100vh
+	background: $gray-6
+
+	& > div
+		width: calc(100vw - #{$aside-nav-width})
+		margin-left: $aside-nav-width
+
+.main
+	padding: 30px 20px 20px

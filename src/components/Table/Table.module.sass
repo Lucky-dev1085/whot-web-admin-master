@@ -1,0 +1,110 @@
+@import '../../sass/abstracts/variables.sass'
+@import '../../sass/abstracts/mixins.sass'
+
+
+.tableData
+	position: relative
+
+.loadingMask
+	@include fullAbsolute
+	background: transparentize($white, .4)
+	z-index: 20
+
+.table
+	width: 100%
+	border-collapse: collapse
+	color: $gray-5
+
+	thead
+		font-size: $small-text
+		line-height: 1.25
+		text-transform: uppercase
+		text-align: left
+		box-shadow: 0 6px 10px 0 rgba(53,59,63,0.03)
+
+		th
+			& > span
+				position: relative
+				padding-right: 15px
+
+				&.sortable
+					cursor: pointer
+				
+					&:before, &:after
+						position: absolute
+						top: 1px
+						right: 0
+						display: inline-block
+						border-color: transparentize($gray-5, .7) transparent
+						border-style: solid
+						border-width: 4px 4px 0px 4px
+						height: 0px
+						width: 0px
+						cursor: pointer
+
+					@include before
+						transform: rotate(180deg)
+
+					@include after
+						transform: translateY(7px)
+
+				&.sortAsc:before
+					border-color: $gray-5 transparent
+
+				&.sortDes:after
+					border-color: $gray-5 transparent
+
+	tbody
+		line-height: 1.21
+		margin-bottom: 20px
+		font-size: $medium-text
+
+		tr
+			border-bottom: thin solid $gray-2
+
+			&.clickable
+				cursor: pointer
+
+				&:hover, &.activeRow
+					background: linear-gradient(180deg, #DFE0EB 0%, #F1F2F7 51.82%, #DFE1EB 100%)
+
+			&:nth-child(even)
+				background-color: rgba(234,233,241,0.17)
+
+	td, th
+		padding: 20px
+
+		&:first-child
+			padding-left: 40px
+
+		&:last-child
+			padding-right: 40px
+
+.tableNav
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding: 15px 30px 20px
+	font-size: $medium-text
+
+.pagination
+	li
+		display: inline-flex
+		justify-content: center
+		align-items: center
+		margin-left: 10px
+		width: 40px
+		height: 40px
+		background: $white
+		border: $regular-border solid $gray-9
+		border-radius: $md-border-radius
+		user-select: none
+		cursor: pointer
+		transition: .2s ease
+
+		&.currentPage
+			border-color: $red
+		
+		&.unavailablePage
+			background: $gray-9
+			cursor: not-allowed
